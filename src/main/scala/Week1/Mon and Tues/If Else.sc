@@ -45,7 +45,7 @@ if (weather.toLowerCase == "cold" || season.toLowerCase ==
 }
 
 //Challenge 2
-val ageRating : Int 18
+val ageRating : Int = 18
 
 if (ageRating >= 18) {
   s"Your $ageRating means you can see a film rated 18"
@@ -75,4 +75,20 @@ val calculatedScore : Int 90
     s"Your $calculatedScore is E"
   } else {
     s"Your $calculatedScore is F"
+}
+ //CODE FROM APRIL
+ val givenAge: Int = 3
+
+if (givenAge >= 18){
+  println("Films ratings: U, PG, 12A, 15 or 18")
+} else if (givenAge >= 15){
+  println("Films ratings: U, PG, 12A or 15")
+} else if (givenAge >= 12){
+  println("Films ratings: U, PG or 12A")
+} else if (givenAge >= 8){
+  println("Films ratings: U or PG")
+}  else if (givenAge >= 4 && givenAge >= 0 ){
+  println("Films ratings: U only")
+} else {
+  println(s"$givenAge is too young to attend the cinema")
 }
