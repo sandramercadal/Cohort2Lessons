@@ -15,8 +15,8 @@ else if (watermelontotal <= 3) {
   if (watermelontotal >=0)
     s"Please enter at least 1 watermelon"
 }
-//Watermelon exercise to be continued...
 
+//Watermelon exercise to be continued...
 
 //EXTENSION
 //In logical operators,
