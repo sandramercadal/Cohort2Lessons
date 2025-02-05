@@ -18,13 +18,10 @@ val total = lemons + flour + cider
 
 //Task 1 - store a Val, re-assign a Val
 // & Task 2 - store a Var, re-assign a Var
-val oldestPerson = 102
-oldestPerson
-//Now reassign it - is the below right??:
-val oldestPerson= 105
-var oldestPerson = 110
+var oldestPerson = 102 //this started as a Val
+//but now it is a var
+oldestPerson = 105
 
-//What about a Var :
 
 
 
