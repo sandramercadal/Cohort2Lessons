@@ -1,32 +1,63 @@
 //MVP
 //Watermelon exercise
-val waterermelonTotal : Int 5
-
-if (ageRating >= 18) {
-  s"Your $ageRating means you can see a film rated 18"
-} else if (ageRating>= 15) {
-  s"Your $ageRating can see a film rated 15"
-} else if (ageRating >= 12) {
-  s"Your $ageRating can see a film rated 12A"
-} else if (ageRating >= 8) {
-  s"Your $ageRating  can see a film rated PG"
-} else if (ageRating >= 4) {
-  s"Your $ageRating can see a film rated U"
-} else {
-  s"Your $ageRating mean are too young  - sorry"
+//include .toLowerCase as applicable
+val watermelontotal: Int = 6
+if (watermelontotal <= 6) {
+  s"You have $watermelontotal watermelons, that means you can't carry that many only carry 5"
 }
-calculateWatermelons() {
-  const watermelons = parseInt(document.getElementById('watermelons').value);
-  let result = '';
+else if (watermelontotal >= 5) {
+  s"You have $watermelontotal watermelons, you can carry a max of 5 in a bag"
+}
+else if (watermelontotal <= 3) {
+  s"You have $watermelontotal watermelons, means you can carry that many John, without a bag"
 
-  if (isNaN(watermelons) || watermelons < 0) {
-    result = "Please enter a valid number of watermelons (0 or more).";
-  } else {
-    if (watermelons < 3) {
-      result = John can carry ${watermelons} watermelons without a bag, but he can use a bag to carry ${watermelons + 2} watermelons.;
-    } else if (watermelons <= 5) {
-      result = John can carry ${watermelons} watermelons and he can use a bag. Total capacity with a bag: ${watermelons + 2} watermelons.;
-    } else {
-      result = John can carry 5 watermelons without a bag, and cannot use a bag. Total: ${watermelons} watermelons (exceeding capacity).;
-    }
-  }
+} else{
+  if (watermelontotal >=0)
+    s"Please enter at least 1 watermelon"
+}
+
+//Watermelon exercise to be continued...
+
+//EXTENSION
+//In logical operators,
+//Priority seems to be : ! before && or ||
+
+true || false && false //true
+//&& has higher priority than || so false && false is checked first  - giving the answer of false.
+//&&  only gives true if both are the same e.g true && true.
+// With true || false, you get true because only one of the two has to be true to give true.
+
+((true || false) && false) //false
+//The parentheses now take priority so what is inside is looked at first.
+//true || false is looked at first, as there is at least one true it gives true.
+//so as we are at true, the next step is true && false which gives false because
+// at least one is false so it gives false (only when both are true is true returned).
+//T/F	   T/F   Answer
+//true	true	  true
+//true	false	  false
+//false	true	  false
+//false	false	  false
+
+//A real-world example:
+//val 1 : User can access the system
+//val 2 : User has been set up with an account
+
+val canAccess = true
+val hasAccount = false
+
+val staffStatus = canAccess && hasAccount
+println (staffStatus)
+//This is because hasAccount is false
+//Tried to use println and the variable which is similar to what I know from Javascript.
+
+(1<4 && 7!=10 ||9+10==21) //TRUE
+//Remember the order of precedence so () first. Know the order.
+//* / %
+//etc
+
+//1 <  4  true
+//7 != 10 true
+//1 < 4 && 7 !=10 = true && true and true
+//9 + 10 ==21 = false
+//true || false = true //according to my table though true and false is false
+
