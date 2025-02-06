@@ -1,7 +1,7 @@
 //MVP
 //Watermelon exercise
-
-val watermelontotal: Int = 4
+//include .toLowerCase as applicable
+val watermelontotal: Int = 6
 if (watermelontotal <= 6) {
   s"You have $watermelontotal watermelons, that means you can't carry that many only carry 5"
 }
@@ -20,7 +20,7 @@ else if (watermelontotal <= 3) {
 
 //EXTENSION
 //In logical operators,
-//Priorty seems to be : ! before && or ||
+//Priority seems to be : ! before && or ||
 
 true || false && false //true
 //&& has higher priority than || so false && false is checked first  - giving the answer of false.
@@ -48,12 +48,16 @@ val hasAccount = false
 val staffStatus = canAccess && hasAccount
 println (staffStatus)
 //This is because hasAccount is false
-//Tried to use println and the variable which is similar to what i know from Javascript...
+//Tried to use println and the variable which is similar to what I know from Javascript.
 
 (1<4 && 7!=10 ||9+10==21) //TRUE
+//Remember the order of precedence so () first. Know the order.
+//* / %
+//etc
+
 //1 <  4  true
 //7 != 10 true
 //1 < 4 && 7 !=10 = true && true and true
 //9 + 10 ==21 = false
-//true || false = true
+//true || false = true //according to my table though true and false is false
 
