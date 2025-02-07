@@ -45,6 +45,7 @@ val getList1Data: Int = firstList (1)
 val getListTail: List [Int] = firstList.tail
 val getLastInList: Int = firstList.last
 
+
 //MAP
 val getMapData = firstMap ("three")//enter the key to get the value
 
@@ -52,27 +53,32 @@ val getMapData = firstMap ("three")//enter the key to get the value
 val tripledList : List [Int] = firstList.map {
   number => number *3
 }
-val tripledSeq : Seq [Int] = firstSeq.map {
-  number => number *3
+
+val tripledSeq: Seq[Int] = firstSeq.map{
+  _ * 3
+
 }
 
+/** Manipulating data - using map */
+// name your data type - it is bad practice to not name your data type
 //wrap in a case
-//key remains the same word as key tripledMap: Map [String, Int] = firstMap.map {
-//Come back to this
- val case (key, value) => (key, value *3)
+//key remains the same word as key
+val tripledList: List[Int] = firstList.map{
+  number => number * 3
+}
+val tripledSeq: Seq[Int] = firstSeq.map{
+  _ * 3
+} // bad practice to not name your data type
+val tripledMap: Map[String, Int] = firstMap.map {
+  case (key, value) => (key, value * 3)
+}
+val changeKey: Map[String, Int] = firstMap.map {
+  case (key, value) => (key.capitalize, value)
+}
+val changeKeyAndValue: Map[String, Int] = firstMap.map {
+  case (key, value) => (key.capitalize, value *3)
 }
 
-val tripledMap : Map[String, Int] = firstMap.map {
-  case (key, value) =>
-  number => number *3
-}
-
-val changeKey:  Map [String, Int] = firstMap.map {
-  case (key,value) => (key.capitalize, value)
-}
-val changeKeyAndValue:  Map [String, Int] = firstMap.map {
-  case (key,value) => (key.capitalize, value *3)
-}
 
 /** Manipulating data - filtering */
 //filter
@@ -119,58 +125,66 @@ val filterNotAlternativeList : List [Int]
  */
   //USING EXISTS
 //Get a boolean result
-val existsSeq: Boolean = firstSeq.exists(number => number >= 2)
-//there is at least one result will get true
-val existsSList: Boolean = firstList.exists(number => number >= 2)
 
-val existsMap: Boolean = firstMap.exists (number => number._2 >= 2)
+ val existsSeq: Boolean = firstSeq.exists(number => number >= 7)//there is at least one result will get true
+ val existsList: Boolean = firstList.exists(number => number >= 2)
+ val existsMap: Boolean = firstMap.exists(number => number._2 >= 2)
 
-//CONTAINS - give it a specific piece of data to look fore.g do you contain a 2 or 7
-//we are looking for one thing
 
-val containsSequence: Boolen = filteredSeq.contains (2)
-//true we we know it contains a 2
-val containsList: Boolen = filteredSeq.contains (7)
-//false we know it doesn't contain a 7
-
-val containsMap: Boolean  = firstMap.contains ("two")
-//checks key not the value!!
-
-val containsOrSeq: Boolean = filteredSeq.contains (7) || firstSeq.contains (2)
+ //CONTAINS - give it a specific piece of data to look fore.g do you contain a 2 or 7
+ //we are looking for one thing
+ val containsSeq: Boolean = filteredSeq.contains(2)//true we we know it contains a 2
+ val containsList: Boolean = filteredList.contains(7)//false we know it doesn't contain a 7
+ val containsMap: Boolean = firstMap.contains("two") //checks the keys not the value!
+ val containsOrSeq: Boolean = filteredSeq.contains(7) || firstSeq.contains(2)
 //does it contain a 7 or  2, ONLY One needs ot be true to give true
-//Combine the operators you already know
+//Combine the operators you already know that we learnt
 
-
-//ADDING TO START (Prepend) AND END OF A LIST (append)
-//Scala like immutable objects so I can't start with and empty list
-
-val x = Seq [Int] ()
-x = x :+ 1 //Adds 1 to my list was empty before
-x= x :+ 2 //This list now has 2, where did 1 go? This won't work.
-//x - This wont work
-// We make a new var every time :
-
-val y: Seq  [Int] = Seq (3,4,5)
-//Append (add to end)
+/**TASK 1*/
+//1. Create a Seq of the names of everybody on the course
+val names: Seq[String] = Seq("Scooby", "Shaggy", "Fred", "Velma", "Daphne")
+//2. Create a Map of 1-“red”, 2-“yellow”, 3-“blue”, 4-“green” and play with accessing the elements
+val colours: Map[Int, String] = Map(1 -> "red", 2 -> "yellow", 3 -> "blue", 4 -> "green")
+val filteredForColourBlue: Map[Int, String] = colours.filter(num => num._1 == 3)
+val filteredForColourBlueV2: Map[Int, String] = colours.filter(num => num._2 == "blue")
+//3. Add 1 to all numbers in a collection.
+val addOneSeq = firstList.map { number => number + 1 }
+//4.Remove all even numbers from a collection.
+val oddNumbersOnly = firstList.filter {
+  number => number % 2 != 0
+}
+//could use filterNot == rather than !=
+val oddNumbersOnlyFilterNot = firstList.filterNot {
+  number => number % 2 == 0
+}
+//5. Return true if a Seq has a String that contains the letter “r” .
+val containsLetterR = names.exists(name => name.contains("r"))
+/**TASK 2*/
+//1.We have looked at the Seq and Map iterables. We haven’t looked at Sets. What are they? How are they different?
+//HastSet, SortedSet etc. Cannot contain duplicate elements (if we had two names the same for our names list, we wouldn't be able to use a set).
+//2. flatMap is another cool method we can call on collections. Research what is does and when it could be useful. Write an example.
+//Combo of map and flatten method. You can iterate through each item, apply a function and separate them (the inner grouping is removed). This is helpful in cases where you need to access data that is buried e.g. lists within lists.
+val flatMapNames: Seq[Char] = names.flatMap(_.toCharArray) //print char
+val flatMapNames: Seq[Char] = names.flatMap(_.toUpperCase) //can apply functions to each char
+//returns a Seq[char] rather than strings
+/** Making additions - prepend (start) or append (end) */
+val x: Seq[Int] = Seq[Int]()
+x :+ 1
+x :+ 2
+x //won't work = immutable
+val y: Seq[Int] = Seq(3,4,5)
+// Append (add to end)
 val appendY = y:+ 6
-
-//Prepend (add to start)
+// Prepend (add to start)
 val prependY = 2 +: appendY
-//How to aooend more than one thing
-val multipleInts = Seq (0,1,2,3) ++ y
-val multipleInts = Seq (0,1,2,3) +: y //this doesn't flatten it out
-
-//APPEND TO A MAP
+val multipleInts = Seq(0,1,2) +: y
+val multipleInts = Seq(0,1,2) ++ y
+//Append Map
 val appendMap = firstMap + ("six" -> 6)
-
-//Map instead of ListMap to order the results of a map, use listMpa rather than Map
-
-/**DELETIONS */
-val removeHead = firstSeq.tail //remove the head
-val removelast = firstSeq.init //remove last index position
-//When your list hits an empty list you want to divert it not stop code
-
-//Removing from a Map
-val removeValueInMap = firstMap - "three" //call to the key to remove
-val removeMultipleValueInMap = firstMap - ("three", "One") //call to the keys to remove
-
+//To order use ListMap rather than Map.
+/** Deleting */
+val removeHead = firstSeq.tail //remove head
+val removeLast = firstSeq.init //remove last index position
+//Removing Map
+val removeValueInMap = firstMap - "three" //call to the key
+val removeMultipleValuesInMap = firstMap - ("three", "one") //call to the key
