@@ -50,42 +50,92 @@ def makeACoffee: String = {
 }
 makeACoffee //last expression returned
 
-//Now with a parameter. Methods start with Def
-//def makeATea (sugar :Int, splashOfMilk: Int) : String = {
-  //s"Add boiling water to your cup with a teabag, add $sugar spoons of sugar and $splashesOfMilk, stir and enjoy!"
+//Now with a parameter. Methods start with Def. name the parameeter when calling the method.
+def makeATea(sugar:Int, splashesOfMilk: Int): String = {
+  s"Add boiling water to your cup with a teabag, add $sugar spoons of sugar and $splashesOfMilk splashes of milk, stir and enjoy!"
 }
-//makeATea(7) //I must enter the parameters I want eg 7 spoons of sugar
-//makeATea(sugar = 7, splashesOfMilk = 6) //we can name parameters when calling good readability
+makeATea(4, 6)
+makeATea(sugar = 7, splashesOfMilk = 6)
+
 
 //VAT
-val vat: Double = 1.2 //times by 1.2 anything we purchase
+val vat: Double = 1.2 //times by 1.2 anything we purchase, price of the item *VAT
 //Make a method :
-def princeIncVat (priceOfItem: Double): Double = {
-  priceOfItem * vat //we dont need {} if 1 only thing
-}
+//we dont need {} if 1 only thing
+def priceIncVat(priceOfItem: Double): Double =
+  priceOfItem * vat //don't need {} if only 1 line
+//run it
+priceIncVat(3.99)
 
-//priceIncVat(3.99)
 
-//Task 1
-//make a method with 2 integers and returns a string
-//use if else statement inside method and operators within that else else if and else etc
-
-//val getBigVal =
-//Where have I told it where input 1 and input 2 is??
-def getBigVal (input1: Int, input2: Int) : String = {
-  if (input1 > input2) "first"
-    else if (input2 < input1) "second"
-      else "equal"
+//Task 1 - make a method with 2 integers and returns a string
+//use if else statement inside method and operators within that else,else if too
+//Where have I told it where input 1 and input 2 is?? //I ran it and put nothing in the getBIgVal ( , )
+def getBigVal (input1: Int, input2: Int): String = {
+  if (input1 > input2){
+    "first"
+  } else if (input1 < input2) {
+    "second"
+  } else if (input1 == input2) {
+    "equal"
+  } else {
+    "oops we have an issue..."
+  }
 }
 //run it
 getBigVal(3,7)
+getBigVal(6,4)
+getBigVal(4,4)
+
+///OR AS I coded:
+def getBigVal (input1: Int, input2: Int): String = {
+  if (input1 > input2) "first"
+  else if (input1 < input2) "second"
+  else
+    "equal"
+}
+getBigVal(3,7)
+getBigVal(6,4)
+getBigVal(4,4)
+//Task 2
+//Create a method called ‘nameLength’ that takes in two Strings called firstName and surname and returns an Integer.
+//The result of the method should return the length/size of the name which is greater.
+// If both names are the same length return 0.
+//Here is some test data eg First name: Peter Last nam: Pan, Result: 6,
+// First name: Mickey Last nam: Mouse, Result: 9, etc
+
+def nameLength(firstName: String, surname: String): Int = {
+
+  if(firstName.length > surname.length){
+    firstName.length
+  } else if (firstName.length < surname.length){
+    surname.length
+  } else {
+    0
+  }
+}
+
+nameLength("Peter", "Pan")
+nameLength("Mickey", "Mouse")
+nameLength("Bigdonald", "Duck")
+//OR
+def nameLength(firstName: String, surname: String): Int = {
+  val firstNameLength: Int = firstName.length
+  val surnameLength: Int = surname.length
+
+  if (firstNameLength > surnameLength) firstNameLength
+
+  else if (firstNameLength< surnameLength) surnameLength
+  else 0
+}
+
 
 /** Referenctial transparancy   */
 //simply means a functions returns value is based solely on the inputs
 //Is it easier for our brains to read the number or read the method again and again
-//We say something has referential transparancy when a functions return value is based solely on the inputs
+//We say something has referential transparency when a functions return value is based solely on the inputs
 //e.g. addition (1,2) always = 3
-  //what is simpler for our rains
+  //what is simpler for our brains?
 def addTwoInts (x:Int, y:Int): Int = x + y
 3 + 3
 3 + addTwoInts (1,2)
