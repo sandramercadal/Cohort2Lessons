@@ -14,6 +14,7 @@ val tripleList: List[Int] = numberList.map{
 //Q1c Write a function that removes 'blue' from above primaryColours
 //blue seems to be the tail
 //remove with a tail function or removeLast?
+//USer filter or filter not??
 val removeLast = primaryColours.init
 
 
@@ -25,8 +26,8 @@ val containsColourOrange = primaryColours.exists (name => name.contains("orange"
 
 
 //Q2 Write a function that maps each value in your List to true or false depending if they are odd.
-//Use modulus here 17 % 2 !=  0
-//Ran out of time plus not good on modulus yet...
+
+//Ran out of time
 
 //Q3 David has many pets; 2 dogs, 1 fish and 1 cat.
 //Q3 a) Make a map which details the key -> value pair of "Name -> "Animal"
