@@ -52,9 +52,13 @@ lowerCaseAndAddS(animals)
 //you just want it as a list of strings you dont wnat this wrapped anymore
 lowerCaseAndAddS(animals) //gives a list
 lowerCaseAndAddS(animals).flatten //gives spaces between letters
+
 lowerCaseAnimals(animals).mkString(" ")//change a list to a string
-lowerCaseAnimals(animals).mkString("! ")
-lowerCaseAnimals(animals)....//get an exclamation on last animal come back to this
+
+//capitaliseList(animals).map(name => name + "!").mkString(" ")
+//make into a capital deosn't seem to run
+
+lowerCaseAnimals(animals)
 
 //Task 1a animal list we already made
 //task 1b Use animal list and and return only the first letter capitalise
@@ -62,4 +66,20 @@ def upperCaseAnimals (animalList: List [String]): List [String] = animalList.map
 //makes the animals lowercase
 upperCaseAnimals(animals)
 
-val name: List [String] = List ("aRia", ")
+//Taskk 1b & C (Unsure on these - Answers from April)
+// Write a simple method that will take in list of names and return them with only the first letter capitalised.
+//Run both methods using this list:
+//                               val names: List [String] = List ("aRia", "BaRT", "ChUCk")
+val names: List[String] = List("aRIa", "BaRT", "ChUCk")
+
+def lowercaseNames(nameInput: List[String]):List[String] = nameInput.map(name => name.toLowerCase)
+def capitaliseNames(nameInput: List[String]):List[String] = nameInput.map(name => name.capitalize)
+
+// TASK 2
+def capitaliseList(nameInput: List[String]): List[String] =
+  for {
+    lower <- lowercaseNames(nameInput) //apply the lower case method
+    capital <- capitaliseNames(List(lower)) //apply the capitalize method
+  } yield capital
+
+capitaliseList(names).map(name => name + "!").mkString(" ")
