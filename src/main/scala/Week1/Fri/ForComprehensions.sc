@@ -1,18 +1,18 @@
 //for comprehensions
-//lightweigh nottation for a sewuence pf methods in one go
-//sometimnes we dont want to call 6 methods to get to the end point
-//only work on the collectiosn from yesterday eg monadic types noty on ints or strings
+//lightweight notation for a sequence pf methods in one go
+//sometimes we don't want to call 6 methods to get to the end point
+//only work on the collection from yesterday eg monadic types not on INT or strings
 
-//<- short hand way for built in menthods backwards arrow simple way of writing a function. End with word yield
+//<- short hand way for built in methods backwards arrow simple way of writing a function. End with word yield
 //(flatmap, filter, map, foreach)
-//These work on monadic types inclu. sequences, list, option, either, future, etc
-//willn ot work on standards Int and Strings & Boolean (workaround is to wrap in an option)
+//These work on monadic types incl. sequences, list, option, either, future, etc
+//will not work on standards Int and Strings & Boolean (workaround is to wrap in an option)
 //yield -- call the map
 
 //imagine we have to validate a password, does it match xyz, does it have an uppercase etc etc so lots of methods)
 
 //CLASSIC
-//wrap in methods so we can call them. Key word is for
+//wrap in methods so we can call them. Key word is 'for'
 //giving me a list
 def retrieveNumbers: Seq[Int] = for (number <- 1  to 10) yield number
 retrieveNumbers
@@ -20,11 +20,13 @@ retrieveNumbers
 
 //use operators
 //squaring it
-def squaredNumbers: Seq [Int] = for (number <- 1 to 5) yield number * number
+def squaredNumbers: Seq[Int] = for (number <- 1 to 5) yield number * number
+squaredNumbers
+
  //if guards
-//list of numbers from 1 to 10 but if off I dont wnat this printed
+//list of numbers from 1 to 10 but if odd I don't want this printed
 //best way is to use modulars of 2
-//if within the parenthese.
+//if within the parenthesis.
 def useIfGuard: Seq [Int] = for (number <-1 to 10 if number % 2 == 0 ) yield number
 useIfGuard
 //removing odd ones
