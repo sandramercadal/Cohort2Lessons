@@ -3,11 +3,11 @@
  Functions, Methods, Referential transparancy, For comprehensions
  */
 // Method step by step instructions on how to do something e.g make a cup of Tea
-//Functions and methods
-//Both when named define specific steps. Can be reused in multiples places
-//Logic is identical so hard to see if it's a method or a function!! Methods contain def or start with def
+//Functions and methods both define specific steps. Can be reused in multiples places
+//Logic is identical so hard to see if it's a method or a function!! Methods contain 'def' or start with 'def'
 
 //Write an anonymous function
+//=> you want it to do something
 (number: Int) => number +1 //number is not declared
 
 //As a val now:
