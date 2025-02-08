@@ -1,4 +1,4 @@
-/**
+/**Sandra personal resrach
  Functions:
  A way to group code that can be executed 0 or more times
  def functionName () : Unit = {
@@ -24,8 +24,8 @@
 //printABC()
 
 //Funtions can accpet paramenters e.g "number" below
-def double (number: Int) = {
-}
+//def double (number: Int) = {
+//}
 
 //INT
 //Primitive data type used to store positive and negative whole numbers without decimals.

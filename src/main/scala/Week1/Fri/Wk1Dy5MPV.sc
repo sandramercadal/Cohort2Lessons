@@ -5,7 +5,7 @@
 //Q1 Write a method to calculate the square of an Int. It should have an input parameter, Int and return type Int.
 
 //Methods have 'def' in them or start with 'def'
-  //Must be given a name e.g squareOfAnInt
+  //TIP: Must be given a unique name e.g squareOfAnInt
 
 def squareOfAnInt (number:Int): Int = number * number
 squareOfAnInt(6)
@@ -19,7 +19,7 @@ isOdd(7)
 isOdd(2)
 
 //Q3 Use a For Comparison and the two methods I created above (squareOfAnInt & isOdd) to write a method sumOfOddNumbers.
-//For comparison doesn't work with Int!!
+//TIP: For comparison doesn't work with Int.
 // For comparison is a lightweight notation for expression of sequence comprehension/simplified way of writing a function.
 //TYPES: Classic, Use operators or Use if guards.
 // SYNTAX: Uses backward symbol e.g. for (numbers <- 1 to <-10) yield numbers  - and 2 symbols will appear between 'to'.
@@ -52,7 +52,21 @@ def squaredNumbers: Seq[Int] = for (number <- 1 to 5) yield number * number
 squaredNumbers
 
 
-//Q4 Write a
+//Q4 Write a Grading system
+//Save each method as a Val, each method does one thing
+//I didn't get to the answer but have written some logical steps to get there:
+
+
+//Function to calculate grade
+// remember to use something that can capture decimals so not Int
+def gradeCalculation (averageScore : Double): String = {
+ if (averageScore)
+}
+
+//How will the user enter the 3 x scores
+
+
+
 
 
 /**
