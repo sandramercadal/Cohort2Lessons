@@ -1,19 +1,24 @@
-//for comprehensions
-//lightweight notation for a sequence pf methods in one go
-//sometimes we don't want to call 6 methods to get to the end point
-//only work on the collection from yesterday eg monadic types not on INT or strings
 
-//<- short hand way for built in methods backwards arrow simple way of writing a function. End with word yield
-//(flatmap, filter, map, foreach)
-//These work on monadic types incl. sequences, list, option, either, future, etc
-//will not work on standards Int and Strings & Boolean (workaround is to wrap in an option)
-//yield -- call the map
+/**For comprehensions
+ lightweight notation for a sequence of methods in one go
+ sometimes we don't want to call 6 methods to get to the end point
+ They only work on the collections we learnt on WK1 Day4 eg monadic types incl. sequences, list, option,
+ either, future, etc not on INT or strings or Booleans
 
-//imagine we have to validate a password, does it match xyz, does it have an uppercase etc etc so lots of methods)
+ <- shorthand way for built-in methods use backwards arrow for simple way of writing a function.
+ End with word "yield" (IMPORTANT SYNTAX)
+ (flatmap, filter, map, foreach)
+ Will not work on standards Int and Strings & Boolean (workaround is to wrap in an option)
+ "yield" -- is to call the map
+
+ Real life situation:
+ Imagine we have to validate a password, there's so many checks we need.
+ Does it match xyz, does it have an uppercase etc so lots of methods).
+*/
 
 //CLASSIC
 //wrap in methods so we can call them. Key word is 'for'
-//giving me a list
+//Gives me a list
 def retrieveNumbers: Seq[Int] = for (number <- 1  to 10) yield number
 retrieveNumbers
 // (1 to 10 ).foreach (number => println (number))
