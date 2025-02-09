@@ -92,7 +92,9 @@ val seqOfMyNames: Seq [String] = Seq ("Mary", "Molly", "Milly", "Mandy", "Marie"
 val containsLetterR = seqOfMyNames.exists(name => name.contains("r"))
 
 
-/**LISTS*/
+/**LISTS
+ Syntax is firstList
+ **/
 
 val getList1Data: Int = firstList (1)
 val getListTail: List [Int] = firstList.tail
@@ -101,18 +103,28 @@ val getLastInList: Int = firstList.last
 
 //MAP
 val getMapData = firstMap ("three")//enter the key to get the value
+//String        //Int
+//Key           //Value
+//"one"          -> 1,
+//"two"          -> 2,
+//"three"        -> 3,
+//"Four"         -> 4,
+//"Five"         -> 5
 
-/** Manipulating data - using map */
+/** Manipulating data - using .map lowercase */
+  //Mapping though my list called firstList :
+//val firstList: List [Int] = List (1,2,3,4,5)
 val tripledList : List [Int] = firstList.map {
   number => number *3
 }
 
+//Mapping though my sequence called firstSeq:
+// val firstSeq: Seq [Int] = Seq (1,2,3,4,5)
 val tripledSeq: Seq[Int] = firstSeq.map{
   _ * 3
-
 }
 
-/** Manipulating data - using map */
+/** Manipulating data - using .map */
 // name your data type - it is bad practice to not name your data type
 //wrap in a case
 //key remains the same word as key
@@ -122,12 +134,17 @@ val tripledList: List[Int] = firstList.map{
 val tripledSeq: Seq[Int] = firstSeq.map{
   _ * 3
 } // bad practice to not name your data type
+
+//Map [String, Int]
+//key
 val tripledMap: Map[String, Int] = firstMap.map {
   case (key, value) => (key, value * 3)
 }
+//key.capitalize
 val changeKey: Map[String, Int] = firstMap.map {
   case (key, value) => (key.capitalize, value)
 }
+//key.capitalize
 val changeKeyAndValue: Map[String, Int] = firstMap.map {
   case (key, value) => (key.capitalize, value *3)
 }
@@ -137,18 +154,14 @@ val changeKeyAndValue: Map[String, Int] = firstMap.map {
 //filter
 //filterNot (works similar to are !=)
 
-val filteredSeq: Seq [Int] = firstSeq.filter (
-  number => number > 2
-)
-
-val filteredList: List [Int] = firstList.filter (
+val filteredSeq: Seq[Int] = firstSeq.filter(
   number => number >= 2
 )
-val filteredList: List [Int] = tripledList.filter (
+val filteredList: List[Int] = firstList.filter(
   number => number >= 2
 )
 
-filteredSeq == filteredList //returned true desoite the val names being the same we are checking
+filteredSeq == filteredList //returned true despite the val names being the same we are checking
 //for the resulting value
 
 //Filter a map - diff to calling it case
@@ -159,7 +172,7 @@ val fileteredMap: Map [String, Int] = firstMap.filter(
 // _1 to access the key
 //_2 to access value
 
-//Filter not: find everything that is not this
+//Val Filter not: find everything that is not this
 val filterNotList: List [Int] = firstList.filterNot(
   number => number >= 2
 )
@@ -175,23 +188,50 @@ val filterNotAlternativeList : List [Int]
 )
 
 /**Manipulating data - check if an element is present
+ Boolean result
  */
   //USING EXISTS
 //Get a boolean result
+  //firstSeq.exists, firstList.exists, firstMap.exists
 
- val existsSeq: Boolean = firstSeq.exists(number => number >= 7)//there is at least one result will get true
+ val existsSeq: Boolean = firstSeq.exists(number => number >= 7)//if there is at least one result will get true
  val existsList: Boolean = firstList.exists(number => number >= 2)
  val existsMap: Boolean = firstMap.exists(number => number._2 >= 2)
 
 
- //CONTAINS - give it a specific piece of data to look fore.g do you contain a 2 or 7
+ //CONTAINS - give it a specific piece of data to look for e.g do you contain a 2 or 7
  //we are looking for one thing
- val containsSeq: Boolean = filteredSeq.contains(2)//true we we know it contains a 2
+//[valNameYouGaveIt.contains]
+ val containsSeq: Boolean = filteredSeq.contains(2)//true know it contains a 2
  val containsList: Boolean = filteredList.contains(7)//false we know it doesn't contain a 7
  val containsMap: Boolean = firstMap.contains("two") //checks the keys not the value!
  val containsOrSeq: Boolean = filteredSeq.contains(7) || firstSeq.contains(2)
 //does it contain a 7 or  2, ONLY One needs ot be true to give true
-//Combine the operators you already know that we learnt
+//Combine the operators you already know that we learnt too.
+
+/** Making additions - prepend (start) or append (end) */
+val x: Seq[Int] = Seq[Int]()
+x :+ 1
+x :+ 2
+x //won't work = immutable
+
+val y: Seq[Int] = Seq(3,4,5)
+// Append (add to end)
+val appendY = y:+ 6
+// Prepend (add to start)
+val prependY = 2 +: appendY
+val multipleInts = Seq(0,1,2) +: y
+val multipleInts = Seq(0,1,2) ++ y
+//Append Map
+val appendMap = firstMap + ("six" -> 6)
+//To order use ListMap rather than Map.
+/** Deleting */
+val removeHead = firstSeq.tail //remove head
+val removeLast = firstSeq.init //remove last index position
+//Removing Map
+val removeValueInMap = firstMap - "three" //call to the key
+val removeMultipleValuesInMap = firstMap - ("three", "one") //call to the key
+
 
 /**TASK 1 APRILS CODE*/
 //1. Create a Seq of the names of everybody on the course
@@ -221,25 +261,3 @@ val flatMapNames: Seq[Char] = names.flatMap(_.toCharArray) //print char
 val flatMapNames: Seq[Char] = names.flatMap(_.toUpperCase) //can apply functions to each char
 //returns a Seq[char] rather than strings
 
-
-/** Making additions - prepend (start) or append (end) */
-val x: Seq[Int] = Seq[Int]()
-x :+ 1
-x :+ 2
-x //won't work = immutable
-val y: Seq[Int] = Seq(3,4,5)
-// Append (add to end)
-val appendY = y:+ 6
-// Prepend (add to start)
-val prependY = 2 +: appendY
-val multipleInts = Seq(0,1,2) +: y
-val multipleInts = Seq(0,1,2) ++ y
-//Append Map
-val appendMap = firstMap + ("six" -> 6)
-//To order use ListMap rather than Map.
-/** Deleting */
-val removeHead = firstSeq.tail //remove head
-val removeLast = firstSeq.init //remove last index position
-//Removing Map
-val removeValueInMap = firstMap - "three" //call to the key
-val removeMultipleValuesInMap = firstMap - ("three", "one") //call to the key
