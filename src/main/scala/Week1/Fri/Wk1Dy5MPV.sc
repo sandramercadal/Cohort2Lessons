@@ -28,51 +28,61 @@ isOdd(2)
           //WIll filter and keep only the odd squared values
           //Then, return the sum of these odd squared numbers.
           //It needs to have List [Int] and return type INT.
-def squareOfAnInt (number:Int): Int = number * number
-def isOdd (number:Int): Boolean = number % 2 == 1
+//def squareOfAnInt (number:Int): Int = number * number
+//def isOdd (number:Int): Boolean = number % 2 == 1
 
-def sumOfOddNumbers (List: Int): Int = {
-  numbers
-}
-
+//def sumOfOddNumbers (List: Int): Int = {
+  //numbers
+//}
 
 //def useIfGuard: Seq [Int] = for (number <-1 to 10 if number % 2 == 0 ) yield number
 //useIfGuard
 //runs if the numbers are odd
---------------------------------------------
-for comp  structure :
-
-def retrieveNumbers: Seq[Int] = for (number <- 1  to 10) yield number
-retrieveNumbers
-// (1 to 10 ).foreach (number => println (number))
-
-//use operators
-//squaring it
-def squaredNumbers: Seq[Int] = for (number <- 1 to 5) yield number * number
-squaredNumbers
+//def squaredNumbers: Seq[Int] = for (number <- 1 to 5) yield number * number
+//squaredNumbers
 
 
 //Q4 Write a Grading system
-//Save each method as a Val, each method does one thing
-//I didn't get to the answer but have written some logical steps to get there:
+//Save each method as a Val, each method does one thing.
 
+/**Business process model to produce grade in (UML) Universal Markup Language (swimlane model):
+ Only 1 Actor in this process model
 
-//Function to calculate grade
-// remember to use something that can capture decimals so not Int
-def gradeCalculation (averageScore : Double): String = {
- if (averageScore)
+CODE STEPS:
+Val [subjectname]Result to specify each paper result
+Method function studentGradeCalculation to calculate grade - remember to use something that can capture decimals so not an Int
+Val studentGradeCalculation to calculate average score. Calculate average first then pass all 3:
+ Needs to pass 3 results (science, history & maths).
+ Pass all 3 with Val finalStudentScore
+Print output
+*/
+val scienceResult = 50
+val mathResult = 85
+val historyResult =59
+
+def studentGradeCalculation (averageScore : Double): String = {
+ if (averageScore >=90) "Grade A"
+ else if (averageScore >=80) "Grade B" //scale is 80-89
+ else if (averageScore >=70) "Grade C" //scale is 70-79
+ else if (averageScore >=60) "Grade D" //scale is 60-69
+ else "Grade E" //scale is 0-59
 }
 
-//How will the user enter the 3 x scores
+val studentIndividualGrades = (scienceResult + mathResult + historyResult) / 3.0
 
+val finalStudentScore = studentGradeCalculation (studentIndividualGrades)
 
-
+println (s"Your average score is $studentIndividualGrades and your grade is $grade")
 
 
 /**
- // Research
- // */
-//Pure and Impure Type up here :
+ Research Pure & Impure
 
 
-//
+
+
+  */
+
+
+
+
