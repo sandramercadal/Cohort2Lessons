@@ -2,7 +2,7 @@
  Functions, Methods, & For comprehensions MPV
  */
 
-//Q1 Write a method to calculate the square of an Int. It should have an input parameter, Int and return type Int.
+//Q1 COMPLETED Write a method to calculate the square of an Int. It should have an input parameter, Int and return type Int.
 
 //Methods have 'def' in them or start with 'def'
   //TIP: Must be given a unique name e.g squareOfAnInt
@@ -11,14 +11,15 @@ def squareOfAnInt (number:Int): Int = number * number
 squareOfAnInt(6)
 squareOfAnInt(64)
 
-//Q2 Write a method to check if a number is odd. It should have an input parameter, Int and return type Boolean.
+//Q2 COMPLETED Write a method to check if a number is odd. It should have an input parameter, Int and return type Boolean.
 
 def isOdd (number:Int): Boolean = number % 2 == 1
 //solution needs an input parameter
 isOdd(7)
 isOdd(2)
 
-//Q3 Use a For Comparison and the two methods I created above (squareOfAnInt & isOdd) to write a method sumOfOddNumbers.
+//Q3 NOT COMPLETED
+// Use a For Comparison and the two methods I created above (squareOfAnInt & isOdd) to write a method sumOfOddNumbers.
 //TIP: For comparison doesn't work with Int.
 // For comparison is a lightweight notation for expression of sequence comprehension/simplified way of writing a function.
 //TYPES: Classic, Use operators or Use if guards.
@@ -42,7 +43,7 @@ isOdd(2)
 //squaredNumbers
 
 
-//Q4 Write a Grading system
+//Q4 COMPLETED Write a Grading system
 //Save each method as a Val, each method does one thing.
 
 /**Business process model to produce grade in (UML) Universal Markup Language (swimlane model):
@@ -74,13 +75,24 @@ val finalStudentScore = studentGradeCalculation (studentIndividualGrades)
 
 println (s"Your average score is $studentIndividualGrades and your grade is $grade")
 
-
-/**
- Research Pure & Impure
-
-
-
-
+/** Research Pure & Impure
+Scala is a functional language so functional programming is a way of writing computer programs as
+ the evaluation of mathematical functions, which avoids changing the state or the mutating data.
+Functional programming is categorized into 2 groups: Pure or Impure.
+A PURE function always gives the same outputs for the same arguments no matter how many times
+ it is called. They are easier to test and debug. They have no side effects (i.e it does not modify an
+ existing variable,array, list or an object of reads from a file or writes to a file.
+e.g
+Addition
+Subtraction
+Division
+Multiplication
+toUpper
+toLower
+isEmpty
+lenth
+ An IMPURE function can give different output every time it is called and the output of the funtion
+ is not dependant only on the input parameters.
   */
 
 

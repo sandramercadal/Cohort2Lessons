@@ -1,45 +1,66 @@
-
-
-/**
- * How do we store collections??
+/**COLLECTIONS
+ How do we store collections??
  */
-// Seq, List, Map (Notice the uppercase)
+// Seq, List, Map
 
-//Immutable
-//Most common are : Maps, Sequences & Lists
+//Immutable - read-only, cannot be re-assigned
+//Most common are : Maps, Sequences & Lists (TIP: Again notice the uppercase)
 
-//SEQUENCES
+/**SEQUENCES
+How do we display the Int 1,2,3,4,5 in common forms??
+We are going to store in a val but we don't necessarily need to:
+these don't have keys:
 
-//We are going to store in a val we don't necessarily need to
-//these don't have keys:
-val firstSeq: Seq [Int] = Seq (1,2,3,4,5)
+ syntax is val giveItAName: [Int] = Seq or List (listitem,listitem,listitem)
+
+*/
+ val firstSeq: Seq [Int] = Seq (1,2,3,4,5)
 val firstList: List [Int] = List (1,2,3,4,5)
-//Anything we can do to a List we can do to a Seq
+//The index position of above is 1=0, 2=1, 3=2 etc like an array in JScript
+//Anything we can do to a List we can do to a Seq!
 
 /**
- * MAP
+ * We can link two things together using MAP
+
+ syntax is val giveItAName: Map [e.g String, Int] = Map (
+ "Key" -> Value   if string will have ""
+)
+ TIP:  Notice Map is in capital letters each time
  */
 //Map has key value pairs (key -> value) declare both key and value in the parameters
 val firstMap: Map [String, Int] = Map (
   //String        //Int
+  //Key           //Value
   "one"          -> 1,
   "two"          -> 2,
   "three"        -> 3,
   "Four"         -> 4,
   "Five"         -> 5
 )
+//The word "one" is linked to 1, the word "two" is linked to 2 etc.
 
-/**Accessing data from within a sequence */
-val getSequenceData: Int = firstSeq (0)
-val getSequenceHead: Int = firstSeq.head //index position 0
-val getSequenceTail: Seq[Int] = firstSeq.tail //Gives everything
-//except the head which the index position 0)
 
-//val getSequence2Data: Int = firstSeq (2)
+/**HOW DO WE ACCESS THE DATA?
+
+ Accessing data from within a sequence
+ getSequenceData:
+ */
+val getSequenceData: Int = firstSeq (0) //gives the index position 1=0, 2=1, 3=2 etc like an array in JScript
+val getSequence2Data: Int = firstSeq (2)
+//These have different grammar, maybe because you don't declare Int[Int]?
+
+//Head and Tail
+//getSequenceHead:
+
+val getSequenceHead: Int = firstSeq.head //index position 0 because 1=0
+//This one different grammar, maybe because you don't declare Int[Int]?
+val getSequenceTail: Seq[Int] = firstSeq.tail //Gives everything except head which the index position 0)
+
 //val getTooMuchData: Int = firstSeq (12)//we don't have any data in the 12th index position
 //error is IndexOutofbounds exception
 
-//LISTS
+
+/**LISTS*/
 
 val getList1Data: Int = firstList (1)
 val getListTail: List [Int] = firstList.tail
@@ -167,6 +188,8 @@ val containsLetterR = names.exists(name => name.contains("r"))
 val flatMapNames: Seq[Char] = names.flatMap(_.toCharArray) //print char
 val flatMapNames: Seq[Char] = names.flatMap(_.toUpperCase) //can apply functions to each char
 //returns a Seq[char] rather than strings
+
+
 /** Making additions - prepend (start) or append (end) */
 val x: Seq[Int] = Seq[Int]()
 x :+ 1

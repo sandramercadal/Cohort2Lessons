@@ -53,3 +53,6 @@ val animalMap: Map[String, String] = Map(
   //string => string._2 >= 2
 //)
 val filteredAnimalMap: Map[String, String] = animalMap.filter( string => string._2 == "dog")
+
+//*APRILS CODE WITH CORRECT CODE
+*/
