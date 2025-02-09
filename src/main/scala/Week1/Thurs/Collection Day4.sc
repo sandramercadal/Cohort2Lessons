@@ -11,19 +11,25 @@ How do we display the Int 1,2,3,4,5 in common forms??
 We are going to store in a val but we don't necessarily need to:
 these don't have keys:
 
- syntax is val giveItAName: [Int] = Seq or List (listitem,listitem,listitem)
+ syntax is val giveItAName: [Int of String] = Seq or List (number,number,number or "string", "String" etc)
 
 */
  val firstSeq: Seq [Int] = Seq (1,2,3,4,5)
 val firstList: List [Int] = List (1,2,3,4,5)
 //The index position of above is 1=0, 2=1, 3=2 etc like an array in JScript
 //Anything we can do to a List we can do to a Seq!
+//What is diff between Seq and List?? They are two diff types of collections
 
+/**TASK 1*/
+//1. Create a Seq of the names of everybody on the course
+val seqOfMyNames: Seq [String] = Seq ("Mary", "Molly", "Milly", "Mandy", "Marie")
 /**
- * We can link two things together using MAP
+
+ * MAP
+ We can link two things together using MAP
 
  syntax is val giveItAName: Map [e.g String, Int] = Map (
- "Key" -> Value   if string will have ""
+ "Key" -> Value,   if string will have "" comma
 )
  TIP:  Notice Map is in capital letters each time
  */
@@ -39,25 +45,51 @@ val firstMap: Map [String, Int] = Map (
 )
 //The word "one" is linked to 1, the word "two" is linked to 2 etc.
 
+/**TASK 1*/
+//2. Create a Map of 1-“red”, 2-“yellow”, 3-“blue”, 4-“green” and play with accessing the elements
+val myColours: Map [Int, String] = Map (
+  1 -> "red",
+  2 -> "yellow",
+  3 -> "blue",
+  4 -> "green"
+)
+val filteredForColourBlue: Map[Int, String] = myColours.filter(num => num._1 == 3)
+val filteredForColourBlueV2: Map[Int, String] = myColours.filter(num => num._2 == "blue")
 
 /**HOW DO WE ACCESS THE DATA?
 
- Accessing data from within a sequence
- getSequenceData:
+ Accessing data from within a sequence use firstSeq
  */
 val getSequenceData: Int = firstSeq (0) //gives the index position 1=0, 2=1, 3=2 etc like an array in JScript
-val getSequence2Data: Int = firstSeq (2)
-//These have different grammar, maybe because you don't declare Int[Int]?
 
-//Head and Tail
-//getSequenceHead:
+//another val
+val getSequence2Data: Int = firstSeq (2)
+//These have different grammar, maybe because you don't declare Int[Int]? Ask April
+
+//Head and Tail use firstSeq.head and firstSeq.tail
 
 val getSequenceHead: Int = firstSeq.head //index position 0 because 1=0
 //This one different grammar, maybe because you don't declare Int[Int]?
-val getSequenceTail: Seq[Int] = firstSeq.tail //Gives everything except head which the index position 0)
+val getSequenceTail: Seq [Int] = firstSeq.tail //Gives everything except head which the index position 0)
 
 //val getTooMuchData: Int = firstSeq (12)//we don't have any data in the 12th index position
 //error is IndexOutofbounds exception
+
+/**TASK 1*/
+//3. Add 1 to all numbers in a collection of Ints.
+val firstList: List [Int] = List (1,2,3,4,5)
+val addOneSeq = firstList.map { number => number + 1 }
+//4.Remove all even numbers from a collection.
+val oddNumbersOnly = firstList.filter {
+  number => number % 2 != 0
+}
+//could use filterNot == rather than !=
+val oddNumbersOnlyFilterNot = firstList.filterNot {
+  number => number % 2 == 0
+}
+//5. Return true if a Seq has a String that contains the letter “r”.
+val seqOfMyNames: Seq [String] = Seq ("Mary", "Molly", "Milly", "Mandy", "Marie")
+val containsLetterR = seqOfMyNames.exists(name => name.contains("r"))
 
 
 /**LISTS*/
@@ -161,7 +193,7 @@ val filterNotAlternativeList : List [Int]
 //does it contain a 7 or  2, ONLY One needs ot be true to give true
 //Combine the operators you already know that we learnt
 
-/**TASK 1*/
+/**TASK 1 APRILS CODE*/
 //1. Create a Seq of the names of everybody on the course
 val names: Seq[String] = Seq("Scooby", "Shaggy", "Fred", "Velma", "Daphne")
 //2. Create a Map of 1-“red”, 2-“yellow”, 3-“blue”, 4-“green” and play with accessing the elements
